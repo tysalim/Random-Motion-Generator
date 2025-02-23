@@ -1,0 +1,13 @@
+import os
+import random
+import time
+
+# TODO: RANDOM GENERATOR FUNCTION
+
+# TODO: SEARCH MOTION FUNCTION
+
+# TODO: FILTER BY TOURNAMENT FUNCTION
+
+# TODO: MAIN MENU
+def main():
+    
