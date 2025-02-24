@@ -22,7 +22,15 @@ def random_motion():
 
 
 # TODO: FILTER BY TOURNAMENT FUNCTION
-
+def search_by_tournament(tournament_name):
+    with open('random-motions.csv', 'r') as f:
+        motion_set = csv.reader(f)
+        motion_set = list(motion_set)
+        for i in range(len(motion_set)):
+            if "".join(motion_set[i][2].lower().split()) == "".join(tournament_name.lower().split()):
+                print('\033[1m' + f'\nRound{motion_set[i][3]}: {motion_set[i][0]}' + '\033[0m')
+        print(f"\n{i} results.\n")
+        return 0
 
 # TODO: MAIN MENU
 def main():
@@ -34,5 +42,8 @@ def main():
     option = input("> ")
     if option.lower().strip() in ["1", "one"]:
        random_motion()
+    elif option.lower().strip() in ["2", "two"]:
+        tournament_name = "".join(input("Tournament Name: ").lower().split())
+        search_by_tournament(tournament_name)
 
 main()
