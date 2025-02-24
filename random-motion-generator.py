@@ -46,4 +46,5 @@ def main():
         tournament_name = "".join(input("Tournament Name: ").lower().split())
         search_by_tournament(tournament_name)
 
-main()
+if __name__ == "__main__":
+    main()
