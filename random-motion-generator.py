@@ -8,16 +8,21 @@ def random_motion():
         motion_set = csv.reader(f)
         motion_set = list(motion_set)
         motion_num = random.randint(1, len(motion_set))
-        print(f'Motion: {motion_set[motion_num][0]}\n')
+
+        print('\033[1m' + f'\nMotion: {motion_set[motion_num][0]}\n' + '\033[0m')
         if motion_set[motion_num] is not None:
-            print(f'Infoslide: {motion_set[motion_num][1]}\n')
-        print(f'Tournament: {motion_set[motion_num][2]}\n')
+            print(f'Infoslide:{motion_set[motion_num][1]}\n')
+        print(f'Tournament:{motion_set[motion_num][2]}\n')
+        print(f'Round:{motion_set[motion_num][3]}\n')
+        
         return 0
     
 
 # TODO: SEARCH MOTION FUNCTION
 
+
 # TODO: FILTER BY TOURNAMENT FUNCTION
+
 
 # TODO: MAIN MENU
 def main():
@@ -25,7 +30,7 @@ def main():
     print("""Select an option to begin:
           1. Random Motion Generator
           2. Search for Motion
-          3. Theme Selection""")
+          3. Theme Selection\n""")
     option = input("> ")
     if option.lower().strip() in ["1", "one"]:
        random_motion()
