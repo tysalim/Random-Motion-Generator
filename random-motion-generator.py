@@ -11,7 +11,7 @@ def random_motion():
 
         print('\033[1m' + f'\nMotion: {motion_set[motion_num][0]}\n' + '\033[0m')
         if motion_set[motion_num] is not None:
-            print(f'Infoslide:{motion_set[motion_num][1]}\n')
+            print(f'Infoslide:{motion_set[motion_num][1].replace("|", ",")}\n')
         print(f'Tournament:{motion_set[motion_num][2]}\n')
         print(f'Round:{motion_set[motion_num][3]}\n')
         
@@ -27,9 +27,10 @@ def search_by_tournament(tournament_name):
         motion_set = csv.reader(f)
         motion_set = list(motion_set)
         for i in range(len(motion_set)):
-            if "".join(motion_set[i][2].lower().split()) == "".join(tournament_name.lower().split()):
-                print('\033[1m' + f'\nRound{motion_set[i][3]}: {motion_set[i][0]}' + '\033[0m')
-        print(f"\n{i} results.\n")
+            if  "".join(tournament_name.lower().split()) in "".join(motion_set[i][2].lower().split()):
+                print(f'Tournament: {motion_set[i][2]}')
+                print('\033[1m' + f'\nRound{motion_set[i][3]}: {motion_set[i][0]}\n' + '\033[0m')
+            
         return 0
 
 # TODO: MAIN MENU
